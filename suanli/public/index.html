@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客 - 分享技术知识</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark csdn-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-page="home">
+                <i class="bi bi-code-slash"></i> 技术博客
+            </a>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="home">
+                            <i class="bi bi-house"></i> 首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="posts">
+                            <i class="bi bi-journal-text"></i> 博客
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="posts">
+                            <i class="bi bi-tags"></i> 专栏
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="posts">
+                            <i class="bi bi-question-circle"></i> 问答
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="posts">
+                            <i class="bi bi-trophy"></i> 竞赛
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- 搜索框 -->
+                <form class="d-flex me-4" id="search-form">
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control" placeholder="搜索博客内容..." id="search-input">
+                        <button class="btn btn-search" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="navbar-nav" id="auth-buttons">
+                    <!-- 登录/注册按钮会动态显示 -->
+                </div>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <div class="container-fluid main-container">
+        <div class="row">
+            <!-- 左侧主要内容区域 -->
+            <div class="col-lg-8 col-md-12 main-content">
+                <!-- 首页内容 -->
+                <div id="welcome-section">
+                    <!-- 轮播图区域 -->
+                    <div class="carousel-section mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-star"></i> 热门推荐</h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="featured-post">
+                                            <div class="featured-badge">热门</div>
+                                            <h6>Node.js入门指南</h6>
+                                            <p class="small text-muted">学习Node.js的基础知识和实践技巧</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="featured-post">
+                                            <div class="featured-badge">推荐</div>
+                                            <h6>Web开发最佳实践</h6>
+                                            <p class="small text-muted">现代Web开发的最佳实践和工具</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="featured-post">
+                                            <div class="featured-badge">新</div>
+                                            <h6>数据库设计原则</h6>
+                                            <p class="small text-muted">高效数据库设计的基本原则</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 最新文章 -->
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="bi bi-clock"></i> 最新文章</h5>
+                            <a href="#" data-page="posts" class="btn btn-sm btn-outline-primary">更多</a>
+                        </div>
+                        <div class="card-body">
+                            <div id="latest-posts" class="row">
+                                <div class="col-12 text-center text-muted py-3">
+                                    <i class="bi bi-arrow-repeat spin"></i> 加载中...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 热门文章 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-fire"></i> 热门文章</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">如何学习编程</h6>
+                                        <small class="text-muted">3天前</small>
+                                    </div>
+                                    <p class="mb-1 small text-muted">编程学习的方法和资源推荐</p>
+                                    <small class="text-muted"><i class="bi bi-eye"></i> 1234 阅读</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">JavaScript高级技巧</h6>
+                                        <small class="text-muted">5天前</small>
+                                    </div>
+                                    <p class="mb-1 small text-muted">提升JavaScript编程水平的技巧</p>
+                                    <small class="text-muted"><i class="bi bi-eye"></i> 987 阅读</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">数据库优化指南</h6>
+                                        <small class="text-muted">1周前</small>
+                                    </div>
+                                    <p class="mb-1 small text-muted">提升数据库性能的实用方法</p>
+                                    <small class="text-muted"><i class="bi bi-eye"></i> 756 阅读</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文章列表页面 -->
+                <div id="posts-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-journal-text"></i> 所有文章</h4>
+                        <button class="btn btn-primary" id="create-post-btn" data-page="create-post">
+                            <i class="bi bi-pencil"></i> 写文章
+                        </button>
+                    </div>
+
+                    <!-- 筛选栏 -->
+                    <div class="card mb-4">
+                        <div class="card-body py-2">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <div class="filter-tags">
+                                        <a href="#" class="badge bg-primary me-2">全部</a>
+                                        <a href="#" class="badge bg-secondary me-2">前端</a>
+                                        <a href="#" class="badge bg-secondary me-2">后端</a>
+                                        <a href="#" class="badge bg-secondary me-2">数据库</a>
+                                        <a href="#" class="badge bg-secondary me-2">算法</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <select class="form-select form-select-sm d-inline-block w-auto" id="sort-select">
+                                        <option value="newest">最新发布</option>
+                                        <option value="oldest">最早发布</option>
+                                        <option value="title">按标题</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="posts-list" class="row"></div>
+
+                    <!-- 分页 -->
+                    <nav id="pagination" class="mt-4 d-none">
+                        <ul class="pagination justify-content-center"></ul>
+                    </nav>
+                </div>
+
+                <!-- 我的文章页面 -->
+                <div id="my-posts-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-person-lines-fill"></i> 我的文章</h4>
+                        <button class="btn btn-primary" data-page="create-post">
+                            <i class="bi bi-plus-circle"></i> 写新文章
+                        </button>
+                    </div>
+                    <div id="my-posts-list" class="row"></div>
+                </div>
+
+                <!-- 文章详情页面 -->
+                <div id="post-detail-page" class="d-none">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" data-page="home">首页</a></li>
+                            <li class="breadcrumb-item"><a href="#" data-page="posts">博客</a></li>
+                            <li class="breadcrumb-item active">文章详情</li>
+                        </ol>
+                    </nav>
+                    <div id="post-detail-content"></div>
+                </div>
+
+                <!-- 创建/编辑文章页面 -->
+                <div id="create-post-page" class="d-none">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" data-page="home">首页</a></li>
+                            <li class="breadcrumb-item"><a href="#" data-page="posts">博客</a></li>
+                            <li class="breadcrumb-item active" id="post-form-breadcrumb">写文章</li>
+                        </ol>
+                    </nav>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0" id="post-form-title"><i class="bi bi-pencil"></i> 写文章</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="create-post-form">
+                                <input type="hidden" id="edit-post-id">
+                                <div class="mb-3">
+                                    <label for="post-title" class="form-label">标题</label>
+                                    <input type="text" class="form-control" id="post-title" placeholder="请输入文章标题" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="post-content" class="form-label">内容</label>
+                                    <textarea class="form-control" id="post-content" rows="15" placeholder="请输入文章内容（支持Markdown格式）" required></textarea>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-secondary" data-page="posts">取消</button>
+                                    <div>
+                                        <button type="button" class="btn btn-outline-primary me-2" id="save-draft-btn">
+                                            <i class="bi bi-file-earmark"></i> 保存草稿
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="bi bi-send"></i> 发布文章
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 搜索结果页面 -->
+                <div id="search-page" class="d-none">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" data-page="home">首页</a></li>
+                            <li class="breadcrumb-item active">搜索结果</li>
+                        </ol>
+                    </nav>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-search"></i> 搜索结果</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted mb-3">关键词: <strong id="search-keyword"></strong></p>
+                            <div id="search-results" class="row"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <div class="col-lg-4 col-md-12 sidebar">
+                <!-- 用户信息卡片 -->
+                <div class="card mb-4" id="user-info-card">
+                    <div class="card-body text-center">
+                        <div class="user-avatar-large mb-3">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <h5 id="sidebar-username">游客</h5>
+                        <p class="text-muted small mb-3">欢迎来到技术博客</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary" data-page="login" id="sidebar-login-btn">
+                                <i class="bi bi-box-arrow-in-right"></i> 登录/注册
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 统计信息 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="bi bi-bar-chart"></i> 博客统计</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="stat-number" id="sidebar-stat-posts">0</div>
+                                <div class="stat-label">文章</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-number" id="sidebar-stat-users">0</div>
+                                <div class="stat-label">用户</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-number" id="sidebar-stat-updates">0</div>
+                                <div class="stat-label">今日</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 热门标签 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="bi bi-tags"></i> 热门标签</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-cloud">
+                            <a href="#" class="tag tag-lg">JavaScript</a>
+                            <a href="#" class="tag">Node.js</a>
+                            <a href="#" class="tag">Python</a>
+                            <a href="#" class="tag">Java</a>
+                            <a href="#" class="tag">数据库</a>
+                            <a href="#" class="tag">前端</a>
+                            <a href="#" class="tag">后端</a>
+                            <a href="#" class="tag">算法</a>
+                            <a href="#" class="tag">Linux</a>
+                            <a href="#" class="tag">Docker</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 最新评论 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="bi bi-chat-left"></i> 最新评论</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="comment-list">
+                            <div class="comment-item">
+                                <div class="comment-author">张三</div>
+                                <div class="comment-content">这篇文章很有帮助！</div>
+                                <div class="comment-meta">关于：Node.js入门</div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-author">李四</div>
+                                <div class="comment-content">期待更多这样的教程</div>
+                                <div class="comment-meta">关于：Web开发</div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-author">王五</div>
+                                <div class="comment-content">讲得很清楚，谢谢！</div>
+                                <div class="comment-meta">关于：数据库设计</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 友情链接 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="bi bi-link"></i> 友情链接</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="friend-links">
+                            <a href="#" class="friend-link">GitHub</a>
+                            <a href="#" class="friend-link">Stack Overflow</a>
+                            <a href="#" class="friend-link">MDN Web Docs</a>
+                            <a href="#" class="friend-link">掘金</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 登录页面 -->
+    <div id="login-page" class="d-none">
+        <div class="login-modal">
+            <div class="login-content">
+                <div class="login-header">
+                    <h5><i class="bi bi-person-circle"></i> 用户登录</h5>
+                    <button type="button" class="btn-close" data-page="home"></button>
+                </div>
+                <div class="login-body">
+                    <ul class="nav nav-tabs mb-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-form="login">登录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-form="register">注册</a>
+                        </li>
+                    </ul>
+                    
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">用户名</label>
+                            <input type="text" class="form-control" id="login-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">密码</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-box-arrow-in-right"></i> 登录
+                        </button>
+                    </form>
+
+                    <form id="register-form" class="d-none">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label">用户名</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">密码</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-confirm-password" class="form-label">确认密码</label>
+                            <input type="password" class="form-control" id="register-confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-person-plus"></i> 注册
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 消息提示 -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h6><i class="bi bi-code-slash"></i> 技术博客</h6>
+                    <p class="small">分享技术知识，交流学习经验</p>
+                </div>
+                <div class="col-md-4">
+                    <h6>链接</h6>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="home">首页</a></li>
+                        <li><a href="#" data-page="posts">博客</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>联系信息</h6>
+                    <p class="small">
+                        <i class="bi bi-envelope"></i> contact@techblog.com<br>
+                        <i class="bi bi-globe"></i> https://techblog.com
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small mb-0">© 2026 技术博客 版权所有</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small mb-0">API状态: <span id="api-status" class="badge bg-success">正常</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
