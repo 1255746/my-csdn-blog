@@ -10,38 +10,31 @@
 </head>
 <body>
     <!-- 顶部导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-dark csdn-navbar">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark csdn-navbar fixed-top">
+        <div class="container-fluid">
+            <button class="btn sidebar-toggle-btn" id="sidebar-toggle" type="button">
+                <i class="bi bi-list"></i>
+            </button>
             <a class="navbar-brand" href="#" data-page="home">
                 <i class="bi bi-code-slash"></i> 技术博客
             </a>
             
             <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto top-nav-menu">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" data-page="home">
-                            <i class="bi bi-house"></i> 首页
-                        </a>
+                        <a class="nav-link active" href="#" data-page="home">首页</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="posts">
-                            <i class="bi bi-journal-text"></i> 博客
-                        </a>
+                        <a class="nav-link" href="#" data-page="posts">博客</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="posts">
-                            <i class="bi bi-tags"></i> 专栏
-                        </a>
+                        <a class="nav-link" href="#" data-page="columns">专栏</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="posts">
-                            <i class="bi bi-question-circle"></i> 问答
-                        </a>
+                        <a class="nav-link" href="#" data-page="qa">问答</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="posts">
-                            <i class="bi bi-trophy"></i> 竞赛
-                        </a>
+                        <a class="nav-link" href="#" data-page="contests">竞赛</a>
                     </li>
                 </ul>
 
@@ -66,8 +59,143 @@
         </div>
     </nav>
 
+    <!-- 左侧边栏 -->
+    <aside class="left-sidebar" id="left-sidebar">
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <a class="sidebar-brand" href="#" data-page="home">
+                    <i class="bi bi-code-slash"></i> 技术博客
+                </a>
+                <button class="btn sidebar-close-btn" id="sidebar-close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-user" id="sidebar-user-mini">
+                <div class="user-avatar-sm">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">游客</div>
+                    <div class="user-status">登录后享受更多功能</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <div class="menu-title">推荐</div>
+                    <ul class="menu-list">
+                        <li class="menu-item active" data-page="home">
+                            <a href="#">
+                                <i class="bi bi-house-door"></i>
+                                <span>首页</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="posts">
+                            <a href="#">
+                                <i class="bi bi-journal-text"></i>
+                                <span>博客</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="columns">
+                            <a href="#">
+                                <i class="bi bi-columns"></i>
+                                <span>专栏</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="qa">
+                            <a href="#">
+                                <i class="bi bi-question-circle"></i>
+                                <span>问答</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="contests">
+                            <a href="#">
+                                <i class="bi bi-trophy"></i>
+                                <span>竞赛</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-section">
+                    <div class="menu-title">学习</div>
+                    <ul class="menu-list">
+                        <li class="menu-item" data-page="downloads">
+                            <a href="#">
+                                <i class="bi bi-download"></i>
+                                <span>下载</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="learn">
+                            <a href="#">
+                                <i class="bi bi-book"></i>
+                                <span>学习</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="community">
+                            <a href="#">
+                                <i class="bi bi-people"></i>
+                                <span>社区</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-section user-menu-section d-none" id="sidebar-user-menu">
+                    <div class="menu-title">个人中心</div>
+                    <ul class="menu-list">
+                        <li class="menu-item" data-page="my-posts">
+                            <a href="#">
+                                <i class="bi bi-file-text"></i>
+                                <span>我的文章</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="favorites">
+                            <a href="#">
+                                <i class="bi bi-star"></i>
+                                <span>我的收藏</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="following">
+                            <a href="#">
+                                <i class="bi bi-person-plus"></i>
+                                <span>我的关注</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="history">
+                            <a href="#">
+                                <i class="bi bi-clock-history"></i>
+                                <span>浏览历史</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-section">
+                    <div class="menu-title">更多</div>
+                    <ul class="menu-list">
+                        <li class="menu-item" data-page="about">
+                            <a href="#">
+                                <i class="bi bi-info-circle"></i>
+                                <span>关于我们</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-page="contact">
+                            <a href="#">
+                                <i class="bi bi-envelope"></i>
+                                <span>联系我们</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+
     <!-- 主要内容区域 -->
-    <div class="container-fluid main-container">
+    <div class="container-fluid main-container" id="main-container">
         <div class="row">
             <!-- 左侧主要内容区域 -->
             <div class="col-lg-8 col-md-12 main-content">
@@ -275,6 +403,150 @@
                         <div class="card-body">
                             <p class="text-muted mb-3">关键词: <strong id="search-keyword"></strong></p>
                             <div id="search-results" class="row"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 专栏页面 -->
+                <div id="columns-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-columns"></i> 专栏</h4>
+                        <button class="btn btn-primary" data-page="create-post">
+                            <i class="bi bi-plus-circle"></i> 创建专栏
+                        </button>
+                    </div>
+                    <div class="row" id="columns-list"></div>
+                </div>
+
+                <!-- 问答页面 -->
+                <div id="qa-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-question-circle"></i> 技术问答</h4>
+                        <button class="btn btn-primary" id="ask-question-btn">
+                            <i class="bi bi-plus-circle"></i> 提问题
+                        </button>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="list-group" id="qa-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 竞赛页面 -->
+                <div id="contests-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-trophy"></i> 技术竞赛</h4>
+                    </div>
+                    <div class="row" id="contests-list"></div>
+                </div>
+
+                <!-- 下载页面 -->
+                <div id="downloads-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-download"></i> 资源下载</h4>
+                    </div>
+                    <div class="row" id="downloads-list"></div>
+                </div>
+
+                <!-- 学习页面 -->
+                <div id="learn-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-book"></i> 学习资源</h4>
+                    </div>
+                    <div class="row" id="learn-list"></div>
+                </div>
+
+                <!-- 社区页面 -->
+                <div id="community-page" class="d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="bi bi-people"></i> 技术社区</h4>
+                    </div>
+                    <div class="row" id="community-list"></div>
+                </div>
+
+                <!-- 我的收藏页面 -->
+                <div id="favorites-page" class="d-none">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" data-page="home">首页</a></li>
+                            <li class="breadcrumb-item active">我的收藏</li>
+                        </ol>
+                    </nav>
+                    <h4 class="mb-4"><i class="bi bi-star"></i> 我的收藏</h4>
+                    <div id="favorites-list" class="row"></div>
+                </div>
+
+                <!-- 我的关注页面 -->
+                <div id="following-page" class="d-none">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" data-page="home">首页</a></li>
+                            <li class="breadcrumb-item active">我的关注</li>
+                        </ol>
+                    </nav>
+                    <h4 class="mb-4"><i class="bi bi-person-plus"></i> 我的关注</h4>
+                    <div id="following-list" class="row"></div>
+                </div>
+
+                <!-- 浏览历史页面 -->
+                <div id="history-page" class="d-none">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" data-page="home">首页</a></li>
+                            <li class="breadcrumb-item active">浏览历史</li>
+                        </ol>
+                    </nav>
+                    <h4 class="mb-4"><i class="bi bi-clock-history"></i> 浏览历史</h4>
+                    <div id="history-list" class="row"></div>
+                </div>
+
+                <!-- 关于我们页面 -->
+                <div id="about-page" class="d-none">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="bi bi-info-circle"></i> 关于我们</h4>
+                        </div>
+                        <div class="card-body about-content">
+                            <h5>技术博客 - 分享技术知识</h5>
+                            <p>技术博客是一个面向开发者的技术分享平台，致力于为程序员提供优质的技术文章、学习资源和交流社区。</p>
+                            <h6>我们的特色</h6>
+                            <ul>
+                                <li>丰富的技术文章，涵盖前后端、数据库、算法等多个领域</li>
+                                <li>活跃的开发者社区，可以互相交流和学习</li>
+                                <li>专栏系统，帮助开发者系统学习某个技术方向</li>
+                                <li>问答功能，快速解决技术问题</li>
+                            </ul>
+                            <h6>联系方式</h6>
+                            <p><i class="bi bi-envelope"></i> contact@techblog.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系我们页面 -->
+                <div id="contact-page" class="d-none">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="bi bi-envelope"></i> 联系我们</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="contact-form">
+                                <div class="mb-3">
+                                    <label for="contact-name" class="form-label">姓名</label>
+                                    <input type="text" class="form-control" id="contact-name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contact-email" class="form-label">邮箱</label>
+                                    <input type="email" class="form-control" id="contact-email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contact-message" class="form-label">留言内容</label>
+                                    <textarea class="form-control" id="contact-message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-send"></i> 发送留言
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
